@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 #plt.scatter(groundxs, groundys, s=50, color='black', label="Images")
 plt.scatter(groundxs, groundys, s=50, facecolors='none', edgecolors='black', label="Images")
 plt.scatter(repxs, repys, s=50, color='green', label="Images")
-
+plt.show()
 from submodlib import DisparitySumFunction
 objDM = DisparitySumFunction(n=48, data=groundData, mode="dense", metric="euclidean")
 greedyList = objDM.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
@@ -33,3 +33,4 @@ plt.scatter(repxs, repys, s=50, color='green', label="Images")
 plt.scatter(greedyXs, greedyYs, s=50, color='blue', label="Greedy Set")
 for label, element in enumerate(greedyList):
     plt.annotate(label, (groundxs[element[0]], groundys[element[0]]), (groundxs[element[0]]+0.1, groundys[element[0]]+0.1))
+plt.show()
